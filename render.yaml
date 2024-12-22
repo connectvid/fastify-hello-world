@@ -5,4 +5,4 @@ services:
     plan: starter
     autoDeploy: true
     buildCommand: yarn
-    startCommand: node app.js
+    startCommand: node index.js
