@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: fastify-project
+    name: convai-twilio-js
     runtime: node
     plan: starter
     autoDeploy: true
