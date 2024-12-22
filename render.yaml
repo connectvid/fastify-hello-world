@@ -3,6 +3,6 @@ services:
     name: fastify-hello-world-example
     runtime: node
     plan: free
-    autoDeploy: false
-    buildCommand: npm install
+    autoDeploy: true
+    buildCommand: yarn
     startCommand: node app.js
