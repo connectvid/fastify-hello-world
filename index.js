@@ -1,4 +1,3 @@
-const Fastify = require("fastify");
 const WebSocket = require("ws");
 const dotenv = require("dotenv");
 const fastifyFormBody = require("@fastify/formbody");
@@ -16,7 +15,10 @@ if (!ELEVENLABS_AGENT_ID) {
 }
 
 // Initialize Fastify server
-const fastify = Fastify();
+const fastify = require("fastify")({
+  logger: true,
+});
+
 fastify.register(fastifyFormBody);
 fastify.register(fastifyWs);
 
@@ -26,11 +28,6 @@ const PORT = process.env.PORT || 5000;
 fastify.get("/health", async (_, reply) => {
   reply.send({ message: "Server is running" });
 });
-
-
-// const fastify = Fastify({
-//   logger: true
-// })
 
 fastify.get('/', function (request, reply) {
   reply.type('text/html').send(html)
